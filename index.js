@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*", // Coloque o domínio do frontend aqui
+    origin: "https://appibbbtest.netlify.app/", // Coloque o domínio do frontend aqui
     methods: ["GET", "POST"],
   },
 });
