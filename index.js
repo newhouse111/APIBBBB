@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://testapiccccc.netlify.app", // Certifique-se de que este é o URL correto do frontend
+    origin: "https://sutetestttsasa.netlify.app", // Certifique-se de que este é o URL correto do frontend
     methods: ["GET", "POST"],
   },
 });
