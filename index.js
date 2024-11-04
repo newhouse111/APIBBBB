@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://testapiccccc.netlify.app", // Coloque o domínio do frontend aqui
+    origin: "https://testapiccccc.netlify.app", // Certifique-se de que este é o URL correto do frontend
     methods: ["GET", "POST"],
   },
 });
@@ -19,16 +19,19 @@ io.on('connection', (socket) => {
 
   // Envia os contadores iniciais ao cliente ao conectar
   socket.emit('initialCounters', { contador1, contador2 });
+  console.log('Contadores iniciais enviados:', { contador1, contador2 });
 
   // Incrementa contador 1 e emite para todos os clientes
   socket.on('incrementarBotao1', () => {
     contador1 += 1;
+    console.log('Contador 1 incrementado:', contador1);
     io.emit('contadorAtualizado', { contador1, contador2 });
   });
 
   // Incrementa contador 2 e emite para todos os clientes
   socket.on('incrementarBotao2', () => {
     contador2 += 1;
+    console.log('Contador 2 incrementado:', contador2);
     io.emit('contadorAtualizado', { contador1, contador2 });
   });
 
